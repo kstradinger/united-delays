@@ -1,6 +1,6 @@
 function createMap(EarthquakeMarkersLayer){
     console.log(EarthquakeMarkersLayer);
-  
+
     // Created a baseMaps object to hold the lightmap and darkmap layer
     // Defined variables for tile layers
     const light = L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}", {
@@ -9,26 +9,26 @@ function createMap(EarthquakeMarkersLayer){
     id: "mapbox.light",
     accessToken: API_KEY
     });
-  
+
     const dark = L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}", {
     attribution: attribution,
     maxZoom: 18,
     id: "mapbox.dark",
     accessToken: API_KEY
     });
-  
+
     // Only one base layer can be shown at a time
     const baseMaps = {
     Light: light,
     Dark: dark
     };
-  
+
     // Create an overlayMaps object to hold the earthquake data layer
     // This creates overlays that may be toggled on or off
     const overlayMaps = {
     Earthquakes: EarthquakeMarkersLayer
     };
-  
+
     // Created the map object with options
      // Map object is centered on the US
      const myMap = L.map("map", {
@@ -36,7 +36,7 @@ function createMap(EarthquakeMarkersLayer){
       zoom: 4,
       layers: [light, EarthquakeMarkersLayer]
     });
-  
+
     // Created a layer control, pass in the baseMaps and overlayMaps. Added the layer control to the map
     L.control.layers(baseMaps, overlayMaps, {collapsed: false}).addTo(myMap);
 
@@ -77,7 +77,7 @@ function createMarkers(response){
     // Pulled the earthquakes & properties off of response.features
     let features = response.features;
     console.log(features);
-  
+
     // Initialized an array to hold earthquake markers
     let earthquakeMarkers = [];
 
@@ -111,7 +111,7 @@ function createMarkers(response){
             color = "#ff0000";
             nature = "Great earthquake. Can totally destroy communities near the epicenter";
         }
-    
+
     // Added circles to the array
     let earthquakeMarker =
         L.circle([feature.geometry.coordinates[1], feature.geometry.coordinates[0]], {
@@ -123,14 +123,14 @@ function createMarkers(response){
         radius: feature.properties.mag * 9000
         }).bindPopup(`<h1>${feature.properties.place}</h1> <hr> <h3>Magnitude: ${feature.properties.mag}</h3> <hr> <p>${nature} </p>`);
         earthquakeMarkers.push(earthquakeMarker);
-    
+
     });
 
     // Created a layer group made from the earthquakeMarkers array, passed it into the createMap function for the overlay
     let markersLayer = L.layerGroup(earthquakeMarkers);
     createMap(markersLayer);
 }
-    
+
 // Performed the API call to the USGS API to get earthquake information. Called createMarkers to start the process of building the map:
 const url ='https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson';
-d3.json(url, createMarkers);
+d3.json(url).then(createMarkers);
