@@ -56,7 +56,7 @@ function createMap(EarthquakeMarkersLayer){
 
         let div = L.DomUtil.create('div', 'info legend'),
         grades = [0, 2.5, 5.4, 6.9, 7.9, 8.0],
-        labels = ["2.5 or less", "2.5-5.4", "5.5-6.0","6.1-6.9","7.0-7.9","8.0 or more"];
+        labels = ["<= 2.5", "2.5-5.4", "5.5-6.0","6.1-6.9","7.0-7.9","8.0+"];
 
         // loop through the density intervals and generate a colored label for each interval
         for (var i = 0; i < grades.length; i++) {
