@@ -9,17 +9,18 @@ function buildData() {
       // Use `.html("") to clear any existing metadata
       coordinateDataContent.html('');
       // Use `Object.entries` to add each key and value pair to the panel
-      let coordinateData = Object.entries(data);
       // Hint: Inside the loop, you will need to use d3 to append new
       // tags for each key-value in the metadata.
 
-      for (let i = 0; i < coordinateData.length; i++) {
+      coordinateDataContent.append('p').text("coordinates");
+      data = data.coordinates;
+      for (let i = 0; i < data.length; i++) {
         // coordinateData[i] is each inner list -> [key, value]
         // create a text string: 'key: value'
-        let string = coordinateData[i][0] + ': ' + coordinateData[i][1];
-
+        let string = data[i][0] + ': ' + data[i][1];
         // create a paragraph or text element to contain this string
         coordinateDataContent.append('p').text(string);
+
       }
     });
 }
