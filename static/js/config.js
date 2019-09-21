@@ -1,4 +1,5 @@
-var API_KEY = "pk.eyJ1Ijoia3VsaW5pIiwiYSI6ImNpeWN6bjJ0NjAwcGYzMnJzOWdoNXNqbnEifQ.jEzGgLAwQnZCv9rA6UTfxQ";
+// API key
+var API_KEY = "pk.eyJ1IjoiZWxsb3dlIiwiYSI6ImNrMDlvdnh2dDBiMjAzaWw2OG81aTkxbWwifQ.D9uCDb2ivNpViMlBzgEmqw";
 
 const attribution = `
   Map data & copy;
