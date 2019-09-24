@@ -23,6 +23,7 @@
 </nav>
 <!-- NAVBAR END -->
 
+  <!-- START visuals -->
   <div class="container-fluid">
 
     <div class="row">
@@ -40,19 +41,59 @@
         </div>
     </div>
 
+    <!-- div for coordinates data -->
     <div class="row">
       <div class="col-md-12">
         <div id="coordinates_data"></div>
       </div>
     </div>
 
+    <!-- div to create the second map -->
     <div class="row">
       <div class="col-md-12">
         <div id="map_test"></div>
       </div>
     </div>
 
+    <!-- START 1st div for plotly graphs -->
+    <!-- <div class="row">
+      <div class="col-md-12">
+        <div id="heenaGraph1">
+  
+        </div>
+      </div>
+    </div> -->
+    <!-- END 1st div for plotly graphs -->
+
+    <!-- START 2nd div for plotly graphs -->
+    <!-- <div class="row">
+      <div class="col-md-12">
+        <div id="heenaGraph2">
+  
+        </div>
+      </div>
+    </div> -->
+    <!-- END 2nd div for plotly graphs -->
+
+    <!-- START side by side graph space -->
+    <!-- <div class="row">
+      <div class="col-md-6">
+        <div id="Heena-side-by-side1">
+
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div id="Heena-side-by-side2">
+
+        </div>
+      </div>
+
+    </div> -->
+    <!-- END side by side graph space -->
+
   </div>
+  <!-- END visuals -->
 
 
    <!-- Leaflet JavaScript -->
@@ -68,6 +109,8 @@
    <script type="text/javascript" src="static/js/logic.js"></script>
    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
    <script type="text/javascript" src="static/js/logic2.js"></script>
+   <!-- <script type="text/javascript" src="static/js/plotly.js"></script> -->
+
 
 </body>
 
