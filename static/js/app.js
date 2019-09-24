@@ -8,9 +8,6 @@ function buildData() {
       coordinateDataContent = d3.select('#coordinates_data');
       // Use `.html("") to clear any existing metadata
       coordinateDataContent.html('');
-      // Use `Object.entries` to add each key and value pair to the panel
-      // Hint: Inside the loop, you will need to use d3 to append new
-      // tags for each key-value in the metadata.
 
       coordinateDataContent.append('p').text("coordinates");
       data = data.coordinates;

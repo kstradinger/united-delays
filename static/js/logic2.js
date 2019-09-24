@@ -1,5 +1,5 @@
-function createMap2(EarthquakeMarkersLayer) {
-    console.log(EarthquakeMarkersLayer);
+function createMap2(HubMarkersLayer) {
+    console.log(HubMarkersLayer);
 
     // Created a baseMaps object to hold the lightmap and darkmap layer
     // Defined variables for tile layers
@@ -26,7 +26,7 @@ function createMap2(EarthquakeMarkersLayer) {
     // Create an overlayMaps object to hold the earthquake data layer
     // This creates overlays that may be toggled on or off
     const overlayMaps = {
-        Earthquakes: EarthquakeMarkersLayer
+        Hubs: HubMarkersLayer
     };
 
     // Created the map object with options
@@ -34,7 +34,7 @@ function createMap2(EarthquakeMarkersLayer) {
     const myMap = L.map("map_test", {
         center: [39.8283, -98.5795],
         zoom: 4,
-        layers: [light, EarthquakeMarkersLayer]
+        layers: [light, HubMarkersLayer]
     });
 
     // Created a layer control, pass in the baseMaps and overlayMaps. Added the layer control to the map
@@ -46,35 +46,35 @@ function createMap2(EarthquakeMarkersLayer) {
 function createMarkers2(response) {
     console.log("createMarkers2!");
     console.log('["createMarkers2"] response: ', response);
-    // Pulled the earthquakes & properties off of response.features
+    // Pulled the hubs & properties off of response.coordinates
     let coordinates = response.coordinates;
     console.log(coordinates);
 
     // Initialized an array to hold earthquake markers
-    let earthquakeMarkers = [];
+    let hubMarkers = [];
 
     // Looped through the earthquakes array and create a circle marker for each earthquake object
     coordinates.forEach((coordinate) => {
 
         // Added circles to the array
-        let earthquakeMarker =
+        let hubMarker =
             L.circle([coordinate[0], coordinate[1]], {
                 fillOpacity: 0.85,
                 color: "black",
                 fillColor: "red",
                 weight: 1,
-                // Adjusted radius according to magnitude and made popups
-                radius: 2000,
+                // Adjusted radius to increase visibility
+                radius: 10000,
             })
-            earthquakeMarkers.push(earthquakeMarker);
+            hubMarkers.push(hubMarker);
 
     });
 
-    // Created a layer group made from the earthquakeMarkers array, passed it into the createMap function for the overlay
-    let markersLayer = L.layerGroup(earthquakeMarkers);
+    // Created a layer group made from the hubMarkers array, passed it into the createMap function for the overlay
+    let markersLayer = L.layerGroup(hubMarkers);
     createMap2(markersLayer);
 }
 
-// Performed the API call to the USGS API to get earthquake information. Called createMarkers to start the process of building the map:
+// Performed the API call to get hub coordinates off our /coordinates route. Called createMarkers to start the process of building the map:
 const url2 = 'http://localhost:5000/coordinates';
 d3.json(url2).then(createMarkers2);
