@@ -76,5 +76,5 @@ function createMarkers2(response) {
 }
 
 // Performed the API call to get hub coordinates off our /coordinates route. Called createMarkers to start the process of building the map:
-const url2 = 'http://localhost:5000/coordinates';
+const url2 = '/coordinates';
 d3.json(url2).then(createMarkers2);
