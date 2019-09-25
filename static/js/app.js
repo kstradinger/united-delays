@@ -9,12 +9,12 @@ function buildData() {
       // Use `.html("") to clear any existing metadata
       coordinateDataContent.html('');
 
-      coordinateDataContent.append('p').text("coordinates");
+      coordinateDataContent.append('p').text("United Airlines US Hub Coordinates");
       data = data.coordinates;
       for (let i = 0; i < data.length; i++) {
         // coordinateData[i] is each inner list -> [key, value]
         // create a text string: 'key: value'
-        let string = data[i][0] + ': ' + data[i][1];
+        let string = data[i][0] + ': ' + data[i][1] + ", " + data[i][2] + ", " + data[i][3];
         // create a paragraph or text element to contain this string
         coordinateDataContent.append('p').text(string);
 
