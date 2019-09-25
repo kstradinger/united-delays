@@ -36,7 +36,9 @@ def scrape_hubs():
         hub = hub.text
         IATA_NS = float(hub.split(",")[0])
         IATA_EW = float(hub.split(",")[1])
-        IATA = [IATA_NS,IATA_EW]
+        IATA_name = hub.split(",")[2]
+        city = hub.split(",")[3]
+        IATA = [IATA_NS,IATA_EW,IATA_name,city]
         IATA_codes.append(IATA)
     
     return IATA_codes
