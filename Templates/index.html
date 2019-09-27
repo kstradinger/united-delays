@@ -5,112 +5,240 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>united dashboard</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <title>United Delays</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!-- Leaflet's CSS -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css">
+  <!-- Project's CSS -->
   <link rel="stylesheet" href="static/css/style.css">
 </head>
 
 <body>
 <!-- NAVBAR START -->
-<nav id="navbar" class="navbar navbar-expand-lg">
-
-  <ul class="navbar-nav">
-    <li class="nav-item active font-weight-bold">
-      <a class="nav-link item-special title-resize" href=""> United Dashboard<span class="sr-only">(current)</span></a>
-    </li>
-  </ul>
+<nav class="navbar navbar-expand-lg navbar-light bg-light nav_special">
+  <a class="navbar-brand" href="#">United Airlines Hub Delays</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Content
+        </a>
+        <div class="dropdown-menu drop_special" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item text-special-black" href="#intro">Intro</a>
+            <a class="dropdown-item text-special-black" href="#coorIntro">Coordinates</a>
+            <a class="dropdown-item text-special-black" href="#about">About</a>
+            <a class="dropdown-item text-special-black" href="#resources">Resources</a>
+        </div>
+      </li>
+    </ul>
+  </div>
 </nav>
 <!-- NAVBAR END -->
 
   <!-- START visuals -->
-  <div class="container-fluid">
+  <div class="container-fluid" style= "margin-top: 60px">
 
-    <div class="row">
-      <div class="col-md-12">
-        <div class="jumbotron text-center">
-            <h1 class="display-4">United Airlines!</h1>
-            <p class="lead">WOOHOOOOO</p>
+    <div data-spy="scroll" id="intro" data-target="#navbar" data-offset="0">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="jumbotron text-center">
+              <h1 class="display-4">United Airlines</h1>
+              <h2>Providing analysis on United flight reliability within the domestic US!</h2>
+              <h3>Maps To View:</h3>
+              <a class="lead text-special-blue" id="map1" href="#map">Annual Average Flight Delays and Annual Passenger Volumes For 2018 United Airlines Domestic Hubs</a>
+              </br>
+              <a class="lead text-special-blue" id="map2" href="#map_test">Flight Paths Between United Airlines Hubs</a>
+              <h3>Graphs To View:</h3>
+              <a class="lead text-special-blue" id="chart1" href="#cancelled">Top 10 United Airports For 2018 Cancellations</a>
+              </br>
+              <a class="lead text-special-blue" id="chart2" href="#delayed">Top 10 United Airports For 2018 Delays</a>
+              </br>
+              <a class="lead text-special-blue" id="chart3" href="#early">Top 10 United Airports For 2018 Early Departures</a>
+              </br>
+          </div>
         </div>
       </div>
     </div>
     <!-- The div that holds the map -->
-    <div class="row">
+    <div data-spy="scroll" data-target="#map1" data-offset="0">
+      <div class="row">
         <div class="col-md-12">
           <div id="map"></div>
         </div>
-    </div>
-
-    <!-- div for coordinates data -->
-    <div class="row">
-      <div class="col-md-12">
-        <div id="coordinates_data"></div>
       </div>
     </div>
 
+    <!-- div for coordinates data -->
+    <div data-spy="scroll" id="coorIntro" data-target="#navbar" data-offset="0">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="jumbotron text-center mt-4">           
+                
+                <div class="card-deck">
+
+                    <div class="card">
+                      <img class = "card-img-top"><iframe src="https://giphy.com/embed/AHGBgxY3lKuLC" width="100%" height="100%" class="giphy-embed"></iframe></img>
+                      <div class="card-body">
+                        <h5 class="card-title">Check Flight Status</h5>
+                        <p class="card-text">Stay up to date!</p>
+                      </div>
+                      <div class="card-footer">
+                        <p class="lead"><a class="text-special-blue" href="https://www.united.com/en/us/flightstatus" target="_blank">https://www.united.com/en/us/flightstatus</a></p>
+                      </div>
+                    </div>
+
+                    <div class="card">
+                      <img class = "card-img-top"><iframe src="https://giphy.com/embed/l378c04F2fjeZ7vH2" width="100%" height="100%" class="giphy-embed"></iframe></img>
+                      <div class="card-body">
+                        <h5 class="card-title">UA BoT Statistics</h5>
+                        <p class="card-text"> Up to date statistics on United Airlines scheduled flights.</p>
+                      </div>
+                      <div class="card-footer">
+                        <p class="lead"><a class="text-special-blue" href="https://www.transtats.bts.gov/carriers.asp?pn=1" target="_blank">https://www.transtats.bts.gov/carriers.asp?pn=1</a></p>
+                      </div>
+                    </div>
+
+                    <div class="card">
+                      <div class="card-body">
+                        <h5 class="card-title text-special-blue">United Airlines US Hub Coordinates</h5>
+                        <div id="coordinates_data" class="jumbotron text-center mt-4"></div>
+                      </div>
+                    </div>
+
+                </div>
+            </div>
+          </div>
+        </div>
+    </div>
+
     <!-- div to create the second map -->
-    <div class="row">
-      <div class="col-md-12">
-        <div id="map_test"></div>
+    <div data-spy="scroll" data-target="#map2" data-offset="0">
+      <div class="row">
+        <div class="col-md-12">
+          <div id="map_test"></div>
+        </div>
       </div>
     </div>
 
     <!-- START 1st div for plotly graphs -->
-    <!-- <div class="row">
-      <div class="col-md-12">
-        <div id="heenaGraph1">
-  
+    <div data-spy="scroll" data-target="#chart1" data-offset="0">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="container-fluid text-center mt-4" id="cancelled"></div>
         </div>
       </div>
-    </div> -->
+    </div>
     <!-- END 1st div for plotly graphs -->
 
     <!-- START 2nd div for plotly graphs -->
-    <!-- <div class="row">
-      <div class="col-md-12">
-        <div id="heenaGraph2">
-  
+    <div data-spy="scroll" data-target="#chart2" data-offset="0">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="container-fluid text-center mt-4" id="delayed">
         </div>
       </div>
-    </div> -->
+    </div>
     <!-- END 2nd div for plotly graphs -->
 
-    <!-- START side by side graph space -->
-    <!-- <div class="row">
-      <div class="col-md-6">
-        <div id="Heena-side-by-side1">
-
+    <!-- START 3rd div for plotly graphs -->
+    <div data-spy="scroll" data-target="#chart3" data-offset="0">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="container-fluid text-center mt-4" id="early">
         </div>
       </div>
+    </div>
+    <!-- END 3rd div for plotly graphs -->
 
-      <div class="col-md-6">
-        <div id="Heena-side-by-side2">
 
+    <!--START About this project -->
+    <div data-spy="scroll" id="about" data-target="#navbar" data-offset="0">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="jumbotron text-center mt-4">
+            <h1 class="display-4">About This Project</h1>
+            <h2>Providing analysis on United Airlines flight reliability for United hubs within the domestic US!</h2>
+            <p class="lead">This project provides viewers with flight delay data, helping inform decision making when choosing what hubs to fly through.</p>
+            <p class="lead">In order to present this information, when the user opens the page, they are able to view a map with 2018 data from the Bureau of Transportation Transtats, analyzed to make compelling visualizations on the first map.</p>
+            <p class="lead">Meanwhile, scripts are running in the background to scrape the web and dynamically alter the page, displaying new content based on the scrape.</p>
+            <p class="lead">The second leaflet map displays the flight paths of United flights between their domestic hubs using Leaflet.Geodesic.</p>
+            <p class="lead">Additionally, viewers may view Plotly charts for statistics on historic United Airlines airport delays, cancellations, and on time departures for these hubs.</p>
+          </div>
         </div>
       </div>
+    </div>
+    <!--END About this project -->
 
-    </div> -->
-    <!-- END side by side graph space -->
+    <!--START RESOURCES -->
+    <div data-spy="scroll" id="resources" data-target="#navbar" data-offset="0">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="jumbotron text-center">
+
+            <h1 class="display-4">Resources & Appreciation</h1>
+            <h2>Great appreciation and many thanks go to our wonderful support team at the Northwestern University Trilogy Data Science Bootcamp!</h2>
+            </br>
+            <p class="lead font-weight-bold">We are especially thankful for our teachers, Eli Rosenberg and Steve Kain. Without their counsel and input this project would not have become what it is.</p>
+            </br>
+            <h2>Open Source Framework, Projects & Libraries:</h2>
+            <p class="lead"><a class="text-special-blue" href="https://www.fullstackpython.com/flask.html" target="_blank">Flask: Full Stack Python</a></p>
+            <p class="lead"><a class="text-special-blue" href="https://transtats.bts.gov/ONTIME/Airline.aspx" target="_blank">henrythasler: Leaflet.Geodesic</a></p>
+            <p class="lead"><a class="text-special-blue" href="https://d3js.org" target="_blank">Data-Driven Documents</a></p>
+            <p class="lead"><a class="text-special-blue" href="https://plot.ly/javascript/" target="_blank">Plotly Graphing Libraries</a></p>
+            <p class="lead"><a class="text-special-blue" href="https://leafletjs.com/" target="_blank">Leaflet</a></p>
+            <p class="lead"><a class="text-special-blue" href="https://splinter.readthedocs.io/en/latest/" target="_blank">Splinter</a></p>
+            <p class="lead"><a class="text-special-blue" href="https://getbootstrap.com/" target="_blank">Bootstrap</a></p>
+            </br>
+            <h2>Data Resources:</h2>
+            <p class="lead"><a class="text-special-blue" href="https://transtats.bts.gov/Tables.asp?DB_ID=120&DB_Name=Airline%20On-Time%20Performance%20Data&DB_Short_Name=On-Time" target="_blank">Bureau of Transportation Statistics: On-Time Performance Data</a></p>
+            <p class="lead"><a class="text-special-blue" href="https://transtats.bts.gov/ONTIME/Airline.aspx" target="_blank">Bureau of Transportation Statistics: Summary Statistics Airline</a></p>
+            <p class="lead"><a class="text-special-blue" href="https://www.united.com/ual/en/us/fly/travel/airport/maps.html" target="_blank">United: Airports and Terminal Maps</a></p>
+            </br>
+            <h2>GIF Resources:</h2>
+            <p class="lead"><a class="text-special-blue" href="https://giphy.com/embed/AHGBgxY3lKuLC" target="_blank">GIF by WRI./W</a></p>
+            <p class="lead"><a class="text-special-blue" href="https://giphy.com/embed/l378c04F2fjeZ7vH2" target="_blank">GIF by Matthew Butler</a></p>
+            </br>
+            <p class="lead"><a class="font-weight-bold text-special-black" href="#">Back To Top</a></p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--END RESOURCES -->
 
   </div>
   <!-- END visuals -->
 
+  <!--START Footer Section -->
+  <footer class="wn-footer">
+    <p>09/26/2019</p>
+    <p>Esther Lowe, Kevin Stradinger, Heena Waichulis, & Rob Mowry</p>
+  </footer>
+  <!--END Footer Section -->
 
-   <!-- Leaflet JavaScript -->
 
-   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-   <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"></script>
-
-   <!-- D3 JavaScript -->
-   <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.2.3/d3.min.js"></script> -->
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
-   <!-- Local JavaScript -->
-   <script type="text/javascript" src="static/js/config.js"></script>
-   <script type="text/javascript" src="static/js/logic.js"></script>
-   <script src="{{ url_for('static', filename='js/app.js') }}"></script>
-   <script type="text/javascript" src="static/js/logic2.js"></script>
-   <!-- <script type="text/javascript" src="static/js/plotly.js"></script> -->
-
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <!-- Leaflet Geodesic & Plotly JavaScript -->
+  <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"></script>
+  <script src="static/js/Leaflet.Geodesic.js"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <!-- D3 JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
+  <!-- Local JavaScript -->
+  <script type="text/javascript" src="static/js/config.js"></script>
+  <script type="text/javascript" src="static/js/logic.js"></script>
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+  <script type="text/javascript" src="static/js/logic2.js"></script>
+  <script type="text/javascript" src="static/js/Top_Ten_Cancellations.js"></script>
+  <script type="text/javascript" src="static/js/Top_Ten_Delays.js"></script>
+  <script type="text/javascript" src="static/js/Top_Ten_Early.js"></script>
 
 </body>
 
